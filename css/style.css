@@ -238,3 +238,62 @@ footer {
     text-align: center;
     padding: 2rem 0;
 }
+/* Navigation - Flexbox */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Darker background for better visibility */
+    z-index: 1000;
+}
+
+/* Show nav links by default on mobile */
+.nav-links {
+    list-style: none;
+    display: none; /* Keep hidden by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    margin-top: 1rem;
+}
+
+/* Add this to show nav when open class is added */
+.nav-links.open {
+    display: flex;
+}
+
+/* Tablet Styles - Update the media query */
+@media screen and (min-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        position: fixed; /* Keep it fixed on all screen sizes */
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    /* Show nav links by default on tablet/desktop */
+    .nav-links {
+        display: flex !important; /* Force show on larger screens */
+        flex-direction: row;
+        width: auto;
+        background: transparent;
+        margin-top: 0;
+    }
+
+    .nav-links li {
+        margin: 0 1rem;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
